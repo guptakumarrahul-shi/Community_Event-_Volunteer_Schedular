@@ -1,0 +1,1587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolunteerHub | Community Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+/* ===== VOLUNTEERHUB PROFESSIONAL DESIGN ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f5fb;
+    color: #374151;
+    font-size: 14px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #a855f7);
+}
+
+.login-box {
+    background: white;
+    width: 370px;
+    max-width: 100%;
+    padding: 32px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border-radius: 17px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.login-box h1 {
+    color: #5145a5;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.login-box p {
+    color: #7b8297;
+    font-size: 13px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin: 13px 0 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddaf5;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.login-box .demo {
+    font-size: 11px;
+    margin-top: 17px;
+}
+
+.error {
+    color: #dc2626 !important;
+    font-size: 12px;
+}
+
+/* ===== HEADER ===== */
+
+.dashboard header {
+    background: linear-gradient(120deg, #5145a5, #667eea);
+    color: white;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px #5145a533;
+}
+
+.brand h2 {
+    font-size: 23px;
+    font-weight: 650;
+}
+
+.brand p {
+    color: #e9e6ff;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+}
+
+.logout {
+    background: #ff647c;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.logout:hover {
+    background: #e83e60;
+}
+
+/* ===== NAVIGATION ===== */
+
+nav {
+    background: #202344;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 10px #20234422;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 16px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c4b5fd;
+    transform: translateY(-2px);
+}
+
+/* ===== MAIN CONTENT ===== */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(80,65,150,0.06);
+    border: 1px solid #eeecfa;
+    scroll-margin-top: 80px;
+}
+
+section h2 {
+    color: #5145a5;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.section-subtitle {
+    color: #8990a5;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ===== STATISTICS ===== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 22px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #f0edff, #e9f4ff);
+    padding: 23px 15px;
+    text-align: center;
+    border-radius: 13px;
+    border-bottom: 4px solid #8b5cf6;
+    transition: 0.3s;
+}
+
+.stat-box:nth-child(2) {
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+    border-color: #ec4899;
+}
+
+.stat-box:nth-child(3) {
+    background: linear-gradient(135deg, #e5fff5, #dcfce7);
+    border-color: #10b981;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px #5145a522;
+}
+
+.stat-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.stat-box h3 {
+    font-size: 29px;
+    color: #6854c8;
+    margin-bottom: 7px;
+}
+
+.stat-box:nth-child(2) h3 {
+    color: #db4784;
+}
+
+.stat-box:nth-child(3) h3 {
+    color: #059669;
+}
+
+.stat-box p {
+    color: #59627b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ===== FORMS ===== */
+
+.form-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #414967;
+    font-size: 13px;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #e0def0;
+    border-radius: 8px;
+    outline: none;
+    background: #fafaff;
+    color: #334155;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #8065ed;
+    box-shadow: 0 0 0 3px #8065ed20;
+    background: white;
+}
+
+button {
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    align-self: end;
+    box-shadow: 0 4px 10px #667eea33;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px #667eea44;
+}
+
+/* ===== EVENTS ===== */
+
+.heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.heading-row h3,
+.table-heading {
+    color: #5145a5;
+    font-size: 16px;
+}
+
+#availableEventCount {
+    background: #eee9ff;
+    color: #6946c7;
+    padding: 7px 13px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.event-card {
+    background: linear-gradient(120deg, #f7f5ff, #f0f7ff);
+    border-left: 5px solid #8065ed;
+    padding: 19px;
+    margin: 15px 0;
+    border-radius: 11px;
+    line-height: 1.8;
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 16px #5145a522;
+}
+
+.event-card h3 {
+    color: #5145a5;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.event-card p {
+    color: #59627b;
+    font-size: 13px;
+}
+
+.event-card .capacity {
+    color: #0b9870;
+    font-weight: bold;
+}
+
+.delete-btn {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #ff647c, #ef4444);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.empty-message {
+    color: #8990a5;
+    text-align: center;
+    padding: 25px;
+    background: #f8f7ff;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+/* ===== TABLES ===== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 17px;
+    min-width: 550px;
+    background: white;
+}
+
+th, td {
+    padding: 12px 14px;
+    border: 1px solid #eeeef7;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background: linear-gradient(135deg, #5145a5, #8065ed);
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #f7f6ff;
+}
+
+tr:hover {
+    background: #eeebff;
+}
+
+td {
+    color: #4b556b;
+}
+
+.status-select {
+    min-width: 110px;
+}
+
+/* ===== REPORT ===== */
+
+.report-box {
+    background: linear-gradient(135deg, #667eea, #764ba2, #a855f7);
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px #667eea44;
+}
+
+.report-box .stat-icon {
+    font-size: 34px;
+}
+
+.report-box h3 {
+    color: white;
+    font-size: 18px;
+}
+
+.report-box h1 {
+    color: white;
+    font-size: 40px;
+    margin: 12px;
+}
+
+.report-box p {
+    color: #eee7ff;
+    font-size: 13px;
+}
+
+.reminder-message {
+    color: #059669;
+    margin-top: 13px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #202344;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    line-height: 1.8;
+}
+
+footer h3 {
+    margin-bottom: 7px;
+    font-size: 18px;
+    color: #c4b5fd;
+}
+
+footer p {
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media(max-width: 750px) {
+    .dashboard header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        padding: 10px;
+        position: static;
+    }
+
+    nav a {
+        margin: 7px;
+        font-size: 12px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        padding: 19px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box {
+        grid-template-columns: 1fr;
+    }
+
+    .heading-row {
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 400px) {
+    .login-box {
+        padding: 24px 19px;
+    }
+
+    .brand h2 {
+        font-size: 21px;
+    }
+
+    .report-box h1 {
+        font-size: 34px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <div class="logo">VH</div>
+            <h1>VolunteerHub</h1>
+            <p>Community Event Volunteer Scheduler</p>
+
+            <form id="loginForm">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <p class="demo">
+                Demo login: Enter any valid email and password.
+            </p>
+
+            <p id="loginError" class="error"></p>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard" id="dashboard" hidden>
+
+        <!-- HEADER -->
+        <header>
+            <div class="brand">
+                <h2>VolunteerHub</h2>
+                <p>Make a difference together</p>
+            </div>
+
+            <div class="header-right">
+                <span id="welcomeMessage">Welcome!</span>
+                <button id="logoutBtn" class="logout">Logout</button>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="#home">Dashboard</a>
+            <a href="#events">Events</a>
+            <a href="#volunteers">Volunteers</a>
+            <a href="#attendance">Attendance</a>
+            <a href="#reports">Reports</a>
+        </nav>
+
+        <main>
+
+            <!-- DASHBOARD -->
+            <section id="home">
+                <h2>Organizer Dashboard</h2>
+                <p class="section-subtitle">
+                    Manage your community events and volunteers.
+                </p>
+
+                <div class="stats">
+
+                    <div class="stat-box">
+                        <div class="stat-icon">📅</div>
+                        <h3 id="eventCount">0</h3>
+                        <p>Total Events</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-icon">👥</div>
+                        <h3 id="volunteerCount">0</h3>
+                        <p>Total Volunteers</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-icon">⏱️</div>
+                        <h3 id="hourCount">0</h3>
+                        <p>Volunteer Hours</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- EVENT CREATION -->
+            <section id="events">
+                <h2>Create New Event</h2>
+                <p class="section-subtitle">
+                    Add a new community event for volunteers.
+                </p>
+
+                <form id="eventForm" class="form-box">
+
+                    <div class="form-group">
+                        <label for="eventName">Event Name</label>
+                        <input type="text" id="eventName"
+                            placeholder="Enter event name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDate">Event Date</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventLocation">Location</label>
+                        <input type="text" id="eventLocation"
+                            placeholder="Enter location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventRole">Volunteer Role</label>
+                        <input type="text" id="eventRole"
+                            placeholder="e.g. Event Manager" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventShift">Shift Timing</label>
+                        <input type="text" id="eventShift"
+                            placeholder="e.g. 9 AM - 12 PM" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventCapacity">Volunteer Capacity</label>
+                        <input type="number" id="eventCapacity"
+                            placeholder="Enter capacity" min="1" step="1" required>
+                    </div>
+
+                    <button type="submit" class="primary-btn">
+                        + Create Event
+                    </button>
+
+                </form>
+
+                <div class="heading-row">
+                    <h3>Available Events</h3>
+                    <span id="availableEventCount">0 Events</span>
+                </div>
+
+                <div id="eventList" class="event-list"></div>
+            </section>
+
+            <!-- VOLUNTEERS -->
+            <section id="volunteers">
+                <h2>Volunteer Registration</h2>
+                <p class="section-subtitle">
+                    Register volunteers for available events.
+                </p>
+
+                <form id="volunteerForm" class="form-box">
+
+                    <div class="form-group">
+                        <label for="volunteerName">Volunteer Name</label>
+                        <input type="text" id="volunteerName"
+                            placeholder="Enter volunteer name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volunteerEmail">Volunteer Email</label>
+                        <input type="email" id="volunteerEmail"
+                            placeholder="Enter volunteer email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volunteerEvent">Select Event</label>
+                        <select id="volunteerEvent" required>
+                            <option value="">Select Event</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-btn">
+                        + Register Volunteer
+                    </button>
+
+                </form>
+
+                <h3 class="table-heading">Registered Volunteers</h3>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Event</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="volunteerList"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ATTENDANCE -->
+            <section id="attendance">
+                <h2>Volunteer Attendance</h2>
+                <p class="section-subtitle">
+                    Update attendance and record volunteer hours.
+                </p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Volunteer</th>
+                                <th>Event</th>
+                                <th>Attendance</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="attendanceList"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- REPORTS -->
+            <section id="reports">
+                <h2>Volunteer Hours Report</h2>
+                <p class="section-subtitle">
+                    View the total contribution of volunteers.
+                </p>
+
+                <div class="report-box">
+                    <div class="stat-icon">🏆</div>
+                    <h3>Total Volunteer Hours</h3>
+                    <h1 id="totalHours">0</h1>
+                    <p>Hours contributed by volunteers</p>
+                </div>
+
+                <button id="reminderBtn" class="primary-btn">
+                    Send Event Reminder
+                </button>
+
+                <p id="reminderMessage" class="reminder-message"
+                    aria-live="polite"></p>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <h3>VolunteerHub</h3>
+            <p>Connecting People. Building Communities.</p>
+            <p>© 2026 VolunteerHub | All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+
+// ======================================
+// VOLUNTEERHUB - COMMUNITY SCHEDULER
+// ======================================
+
+
+// GET HTML ELEMENTS
+
+const loginForm = document.getElementById("loginForm");
+const loginPage = document.getElementById("loginPage");
+const dashboard = document.getElementById("dashboard");
+
+const eventForm = document.getElementById("eventForm");
+const volunteerForm = document.getElementById("volunteerForm");
+
+const eventList = document.getElementById("eventList");
+const volunteerList = document.getElementById("volunteerList");
+const attendanceList = document.getElementById("attendanceList");
+
+
+// LOAD SAVED DATA
+
+function loadData(key) {
+    try {
+        const data = JSON.parse(localStorage.getItem(key));
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+let events = loadData("events");
+let volunteers = loadData("volunteers");
+
+
+// SAVE DATA
+
+function saveData() {
+    localStorage.setItem("events", JSON.stringify(events));
+    localStorage.setItem("volunteers", JSON.stringify(volunteers));
+}
+
+
+// ======================================
+// LOGIN SYSTEM
+// ======================================
+
+loginForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password.trim()) {
+        document.getElementById("loginError").textContent =
+            "Please enter your email and password!";
+        return;
+    }
+
+    // Demo login: any valid email and non-empty password
+
+    sessionStorage.setItem("loggedIn", "true");
+    sessionStorage.setItem("userEmail", email);
+
+    showDashboard();
+
+});
+
+
+// SHOW DASHBOARD
+
+function showDashboard() {
+
+    loginPage.hidden = true;
+    dashboard.hidden = false;
+
+    const email = sessionStorage.getItem("userEmail") || "Admin";
+
+    document.getElementById("welcomeMessage").textContent =
+        "Welcome, " + email + "!";
+
+    document.getElementById("loginError").textContent = "";
+
+    updateDashboard();
+}
+
+
+// CHECK LOGIN SESSION
+
+function checkLogin() {
+
+    if (sessionStorage.getItem("loggedIn") === "true") {
+
+        showDashboard();
+
+    } else {
+
+        loginPage.hidden = false;
+        dashboard.hidden = true;
+
+    }
+}
+
+
+// LOGOUT
+
+document.getElementById("logoutBtn").addEventListener("click", logout);
+
+function logout() {
+
+    sessionStorage.removeItem("loggedIn");
+    sessionStorage.removeItem("userEmail");
+
+    dashboard.hidden = true;
+    loginPage.hidden = false;
+
+    loginForm.reset();
+
+    document.getElementById("loginError").textContent = "";
+}
+
+
+// ======================================
+// CREATE EVENT
+// ======================================
+
+eventForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const capacity = Number(
+        document.getElementById("eventCapacity").value
+    );
+
+    if (!Number.isInteger(capacity) || capacity < 1) {
+        alert("Please enter a valid volunteer capacity.");
+        return;
+    }
+
+    const event = {
+
+        id: Date.now(),
+
+        name: document.getElementById("eventName").value.trim(),
+
+        date: document.getElementById("eventDate").value,
+
+        location: document.getElementById("eventLocation").value.trim(),
+
+        role: document.getElementById("eventRole").value.trim(),
+
+        shift: document.getElementById("eventShift").value.trim(),
+
+        capacity: capacity
+
+    };
+
+    events.push(event);
+
+    saveData();
+
+    eventForm.reset();
+
+    updateDashboard();
+
+    alert("Event created successfully!");
+
+});
+
+
+// ======================================
+// DISPLAY EVENTS
+// ======================================
+
+function displayEvents() {
+
+    eventList.innerHTML = "";
+
+    document.getElementById("availableEventCount").textContent =
+        events.length + (events.length === 1 ? " Event" : " Events");
+
+    if (events.length === 0) {
+
+        const message = document.createElement("p");
+        message.className = "empty-message";
+        message.textContent = "No events available. Create your first event!";
+
+        eventList.appendChild(message);
+
+        updateEventOptions();
+        return;
+    }
+
+    events.forEach(function(event) {
+
+        const registered = volunteers.filter(
+            v => v.eventId === event.id
+        ).length;
+
+        const card = document.createElement("div");
+        card.className = "event-card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = event.name;
+
+        const details = document.createElement("p");
+
+        details.textContent =
+            "📅 Date: " + event.date +
+            " | 📍 Location: " + event.location +
+            " | 👤 Role: " + event.role +
+            " | ⏰ Shift: " + event.shift;
+
+        const capacity = document.createElement("p");
+        capacity.className = "capacity";
+
+        capacity.textContent =
+            "Volunteer Capacity: " + registered + "/" + event.capacity;
+
+        const deleteButton = document.createElement("button");
+
+        deleteButton.className = "delete-btn";
+        deleteButton.textContent = "Delete Event";
+
+        deleteButton.addEventListener("click", function() {
+
+            deleteEvent(event.id);
+
+        });
+
+        card.appendChild(heading);
+        card.appendChild(details);
+        card.appendChild(capacity);
+        card.appendChild(deleteButton);
+
+        eventList.appendChild(card);
+
+    });
+
+    updateEventOptions();
+
+}
+
+
+// ======================================
+// DELETE EVENT
+// ======================================
+
+function deleteEvent(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this event? Registered volunteers will also be removed."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    events = events.filter(function(event) {
+        return event.id !== id;
+    });
+
+    volunteers = volunteers.filter(function(volunteer) {
+        return volunteer.eventId !== id;
+    });
+
+    saveData();
+
+    updateDashboard();
+
+    alert("Event deleted successfully!");
+
+}
+
+
+// ======================================
+// UPDATE EVENT DROPDOWN
+// ======================================
+
+function updateEventOptions() {
+
+    const select = document.getElementById("volunteerEvent");
+
+    const previousValue = select.value;
+
+    select.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+
+    defaultOption.value = "";
+    defaultOption.textContent = "Select Event";
+
+    select.appendChild(defaultOption);
+
+    events.forEach(function(event) {
+
+        const option = document.createElement("option");
+
+        option.value = event.id;
+
+        option.textContent = event.name;
+
+        const registered = volunteers.filter(
+            v => v.eventId === event.id
+        ).length;
+
+        if (registered >= event.capacity) {
+
+            option.disabled = true;
+            option.textContent += " (Full)";
+
+        }
+
+        select.appendChild(option);
+
+    });
+
+    if (events.some(event =>
+        String(event.id) === previousValue &&
+        volunteers.filter(v => v.eventId === event.id).length < event.capacity
+    )) {
+        select.value = previousValue;
+    }
+
+}
+
+
+// ======================================
+// VOLUNTEER REGISTRATION
+// ======================================
+
+volunteerForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("volunteerName").value.trim();
+
+    const email = document.getElementById("volunteerEmail").value.trim();
+
+    const eventId = Number(
+        document.getElementById("volunteerEvent").value
+    );
+
+    const event = events.find(function(event) {
+        return event.id === eventId;
+    });
+
+    if (!event) {
+
+        alert("Please select a valid event!");
+
+        return;
+
+    }
+
+    // CHECK EVENT CAPACITY
+
+    const registered = volunteers.filter(function(v) {
+        return v.eventId === eventId;
+    }).length;
+
+    if (registered >= event.capacity) {
+
+        alert("Sorry! This event is already full.");
+
+        updateDashboard();
+
+        return;
+
+    }
+
+    // CHECK DUPLICATE VOLUNTEER
+
+    const alreadyRegistered = volunteers.some(function(v) {
+
+        return v.eventId === eventId &&
+            v.email.toLowerCase() === email.toLowerCase();
+
+    });
+
+    if (alreadyRegistered) {
+
+        alert("This volunteer is already registered for this event!");
+
+        return;
+
+    }
+
+    // CREATE VOLUNTEER
+
+    const volunteer = {
+
+        id: Date.now(),
+
+        name: name,
+
+        email: email,
+
+        eventId: eventId,
+
+        eventName: event.name,
+
+        role: event.role,
+
+        attendance: "Pending",
+
+        hours: 0
+
+    };
+
+    volunteers.push(volunteer);
+
+    saveData();
+
+    volunteerForm.reset();
+
+    updateDashboard();
+
+    alert("Volunteer registered successfully!");
+
+});
+
+
+// ======================================
+// DISPLAY VOLUNTEERS
+// ======================================
+
+function displayVolunteers() {
+
+    volunteerList.innerHTML = "";
+
+    if (volunteers.length === 0) {
+
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 4;
+        cell.textContent = "No volunteers registered yet.";
+
+        row.appendChild(cell);
+        volunteerList.appendChild(row);
+
+        return;
+
+    }
+
+    volunteers.forEach(function(v) {
+
+        const row = document.createElement("tr");
+
+        [v.name, v.email, v.eventName, v.role].forEach(function(value) {
+
+            const cell = document.createElement("td");
+
+            cell.textContent = value;
+
+            row.appendChild(cell);
+
+        });
+
+        volunteerList.appendChild(row);
+
+    });
+
+}
+
+
+// ======================================
+// ATTENDANCE MANAGEMENT
+// ======================================
+
+function displayAttendance() {
+
+    attendanceList.innerHTML = "";
+
+    if (volunteers.length === 0) {
+
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 4;
+        cell.textContent = "No volunteers available.";
+
+        row.appendChild(cell);
+        attendanceList.appendChild(row);
+
+        return;
+
+    }
+
+    volunteers.forEach(function(v) {
+
+        const row = document.createElement("tr");
+
+
+        // VOLUNTEER NAME
+
+        const nameCell = document.createElement("td");
+
+        nameCell.textContent = v.name;
+
+
+        // EVENT NAME
+
+        const eventCell = document.createElement("td");
+
+        eventCell.textContent = v.eventName;
+
+
+        // ATTENDANCE STATUS
+
+        const statusCell = document.createElement("td");
+
+        const status = document.createElement("select");
+
+        status.className = "status-select";
+
+        ["Pending", "Present", "Absent"].forEach(function(value) {
+
+            const option = document.createElement("option");
+
+            option.value = value;
+            option.textContent = value;
+
+            status.appendChild(option);
+
+        });
+
+        status.value = v.attendance || "Pending";
+
+        status.addEventListener("change", function() {
+
+            v.attendance = status.value;
+
+            // Reset hours if absent or pending
+
+            if (v.attendance !== "Present") {
+
+                v.hours = 0;
+
+            }
+
+            saveData();
+
+            updateDashboard();
+
+        });
+
+        statusCell.appendChild(status);
+
+
+        // VOLUNTEER HOURS
+
+        const hoursCell = document.createElement("td");
+
+        const hours = document.createElement("input");
+
+        hours.type = "number";
+
+        hours.min = "0";
+
+        hours.max = "24";
+
+        hours.step = "0.5";
+
+        hours.value = Number(v.hours || 0);
+
+        hours.disabled = v.attendance !== "Present";
+
+        hours.setAttribute("aria-label", "Hours for " + v.name);
+
+        hours.addEventListener("change", function() {
+
+            const value = Number(hours.value);
+
+            if (
+                !Number.isFinite(value) ||
+                value < 0 ||
+                value > 24 ||
+                hours.value.trim() === ""
+            ) {
+
+                alert("Please enter hours between 0 and 24.");
+
+                hours.value = Number(v.hours || 0);
+
+                return;
+
+            }
+
+            v.hours = value;
+
+            saveData();
+
+            updateDashboard();
+
+        });
+
+
+        // ADD CELLS
+
+        hoursCell.appendChild(hours);
+
+        row.appendChild(nameCell);
+
+        row.appendChild(eventCell);
+
+        row.appendChild(statusCell);
+
+        row.appendChild(hoursCell);
+
+        attendanceList.appendChild(row);
+
+    });
+
+}
+
+
+// ======================================
+// UPDATE DASHBOARD STATISTICS
+// ======================================
+
+function updateDashboard() {
+
+    // TOTAL EVENTS
+
+    document.getElementById("eventCount").textContent =
+        events.length;
+
+
+    // TOTAL VOLUNTEERS
+
+    document.getElementById("volunteerCount").textContent =
+        volunteers.length;
+
+
+    // TOTAL VOLUNTEER HOURS
+
+    const totalHours = volunteers.reduce(function(total, v) {
+
+        return total + Number(v.hours || 0);
+
+    }, 0);
+
+    document.getElementById("hourCount").textContent =
+        totalHours;
+
+    document.getElementById("totalHours").textContent =
+        totalHours;
+
+
+    // REFRESH ALL SECTIONS
+
+    displayEvents();
+
+    displayVolunteers();
+
+    displayAttendance();
+
+}
+
+
+// ======================================
+// EVENT REMINDERS
+// ======================================
+
+document.getElementById("reminderBtn")
+.addEventListener("click", showReminder);
+
+
+function showReminder() {
+
+    const messageBox = document.getElementById("reminderMessage");
+
+    messageBox.textContent = "";
+
+    if (events.length === 0) {
+
+        alert("No events available!");
+
+        return;
+
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcomingEvents = events.filter(function(event) {
+
+        const eventDate = new Date(event.date + "T00:00:00");
+
+        return eventDate >= today;
+
+    });
+
+    if (upcomingEvents.length === 0) {
+
+        alert("There are no upcoming events!");
+
+        return;
+
+    }
+
+    const message = upcomingEvents.map(function(event) {
+
+        return event.name + " - " + event.date;
+
+    }).join("\n");
+
+    alert("Upcoming Event Reminders:\n\n" + message);
+
+    messageBox.textContent =
+        "Upcoming event reminder details displayed successfully!";
+
+}
+
+
+// ======================================
+// INITIALIZE WEBSITE
+// ======================================
+
+checkLogin();
+
+
+    </script>
+</body>
+</html>
